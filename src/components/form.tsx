@@ -1,8 +1,19 @@
 'use client';
 
+const errores = [
+  "El campo DNI es obligatorio.",
+  "El campo Nombres es obligatorio.",
+  "El campo Apellidos es obligatorio.",
+  "El campo Teléfono es obligatorio.",
+  "El campo Correo es obligatorio.",
+]
+
 export default function Home() {
+
+
+
   return ( 
-    <div className="w-full bg-zinc-900/50 rounded-lg p-4 border border-zinc-800 font-oswald ">
+    <div className="w-full font-oswald mt-5 ">
       <h1 className="text-3xl  text-white text-center mb-6 font-bold">
         PART<span className="text-orange-600">ICIPA</span>
       </h1>
@@ -10,7 +21,7 @@ export default function Home() {
 
       {/* FORM FINAL */}
       <form action=""
-        className="flex flex-col gap-4 w-full mt-5 font-oswald h-auto"
+        className="flex flex-col gap-4 w-full mt-5 font-oswald h-auto bg-zinc-900/50 rounded-lg p-4 border-zinc-800 border "
       >
       {/* UCI AÑO HOmbre/Mujer */}
         <div className="flex gap-3 justify-between w-full h-8"> 
@@ -145,6 +156,15 @@ export default function Home() {
       {/* Enviar */}
         <input type="submit" placeholder="ENVIAR" className="p-2 bg-orange-600 w-1/5 min-w-24 mx-auto rounded cursor-pointer hover:scale-110 transition-all uppercase hover:font-bold"/>
       </form>
+
+      {/* ERRORES */}
+      <div className="w-full mt-5 font-oswald font-normal">
+        {
+          errores.map( (err, index) => (
+            <p key={index} className="text-red-400 text-center font-bold">{err}</p>
+          ))
+        }
+      </div>
     </div>
   );
 }
