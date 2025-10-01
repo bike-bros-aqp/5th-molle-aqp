@@ -1,12 +1,12 @@
 export default function RegisterForm() {
   return ( 
-    <div className="min-h-screen flex items-center justify-center bg-black">
+    <div className="">
       <div className="w-full max-w-lg bg-zinc-900 rounded-2xl shadow-xl p-8 border border-zinc-800">
-        <h1 className="text-3xl font-extrabold text-white text-center mb-6">
-          Registro <span className="text-orange-600">MILLEBAYA</span>
+        <h1 className="text-3xl  text-white text-center mb-6">
+          VAS A CAER <span className="text-orange-600">DINA CTM</span>
         </h1>
 
-        <form className="space-y-5">
+        {/* <form className="space-y-5">
           <div>
             <label className="block text-sm font-semibold text-white mb-2">
               Nombre Completo
@@ -48,7 +48,7 @@ export default function RegisterForm() {
           >
             Inscribirme
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );
