@@ -41,7 +41,7 @@ const noUciTable = [
 const costos = [
   {name: 'Preventa 1', desde: '01-OCT', hasta: '08-OCT', costo: '85'},
   {name: 'Preventa 2', desde: '09-OCT', hasta: '16-OCT', costo: '115'},
-  {name: 'Regular', desde: '17-OCT', hasta: '-', costo: '140'},
+  {name: 'Regular', desde: '17-OCT', hasta: '31-OCT', costo: '140'},
 ]
 
 const contacto = [
@@ -174,14 +174,19 @@ export default function Inscripcion() {
           }
         </div>
       </div>
+
+    {/*_______________FOOTER */}
+      <div className="w-full p-2 text-center text-white text-[10px] underline">
+        <a href="#">Terminos y condiciones</a>
+      </div>
     {/*_______________Formulario */}
       <div className="max-w-3xl p-2 mb-5 " id="form-register">
         <RegisterForm />
       </div>
 
     {/*_______________FOOTER */}
-      <footer className="w-full p-2 bg-black">
-        <p className="text-white text-center text-[10px]">
+      <footer className="w-full p-2">
+        <p className="text-white text-center text-[8px]">
           Desarrollado por  <a href="https://wa.me/51936664619" target="_blank" className="underline" rel="noopener noreferrer">CarlosCoDev</a>
         </p>
       </footer>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Oswald } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import Background from "@/components/background";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -32,8 +34,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${anton.variable} ${oswald.variable} antialiased w-dvw h-dvh overflow-x-hidden`}>
-      <div className="fixed inset-0 -z-10 bg-center bg-cover " style={{ backgroundImage: "url('https://res.cloudinary.com/dky2ixuo5/image/upload/v1759271763/fondo_vcidqx.png')" }}>
-      </div>
+      <Background />
+
       <div className="relative z-10">
         {children}
       </div>
