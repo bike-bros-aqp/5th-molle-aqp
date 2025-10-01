@@ -1,7 +1,9 @@
 'use client'
 
+import RegisterForm from "@/components/form";
 import Categorias from "@/components/table";
 import Image from "next/image"
+import Link from "next/link";
 
 const organizadores = [
   {src: "https://res.cloudinary.com/dky2ixuo5/image/upload/v1759271762/logo_bike_bros_thtrsf.png", alt: "logo Bike Bros"},
@@ -42,6 +44,11 @@ const costos = [
   {name: 'Regular', desde: '17-OCT', hasta: '-', costo: '140'},
 ]
 
+const contacto = [
+  {name: 'John J.', numero: '990075670'},
+  {name: 'Pablo A.', numero: '974798369'},
+]
+
 export default function Inscripcion() {
   return (
     <div className="w-full flex flex-col min-h-screen items-center">
@@ -52,14 +59,14 @@ export default function Inscripcion() {
           <Image src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759271763/ranking_lypkef.png" alt="logo" width={100} height={80}/>
           <a
             className="inline-block rounded-sm border border-current px-6 py-2 text-sm font-medium text-primary transition hover:animate-pulse hover:shadow-xl focus:ring-3 focus:outline-hidden "
-            href="#" >
+            href="#form-register" >
             REGISTRATE
           </a>
         </div>
       </header>
 
     {/*_______________MAIN LOGO */}
-      <div className="w-full flex justify-center max-w-4xl p-5 md:p-0">
+      <div className="w-full flex justify-center max-w-4xl px-5 py-5 my-10 md:my-16 md:p-0">
         <Image 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
           width={700} height={600}
@@ -103,7 +110,7 @@ export default function Inscripcion() {
       </div>
 
     {/*_______________TABLA UCI*/}
-      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mb-5">
+      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mt-10 mb-5">
         <p className="text-gray-200 font-anton text-2xl">Categorias UCI:</p>
         <Categorias content={uciTable}/>
       </div>
@@ -118,30 +125,58 @@ export default function Inscripcion() {
       <div className="flex flex-col items-center p-2 gap-4 mb-5 ">
         <p className="text-gray-200 font-anton text-2xl">Costo:</p>
         <table className="min-w-full divide-y-2 divide-gray-200">
-        <thead className="ltr:text-center rtl:text-right">
-          <tr className="text-primary font-bold">
-            <th className="px-3 py-2 whitespace-nowrap"></th>
-            <th className="px-3 py-2 whitespace-nowrap">DESDE</th>
-            <th className="px-3 py-2 whitespace-nowrap">HASTA</th>
-            <th className="px-3 py-2 whitespace-nowrap">COSTO</th>
-          </tr>
-        </thead>
+          <thead className="ltr:text-center rtl:text-right">
+            <tr className="text-primary font-bold">
+              <th className="px-3 py-2 whitespace-nowrap"></th>
+              <th className="px-3 py-2 whitespace-nowrap">DESDE</th>
+              <th className="px-3 py-2 whitespace-nowrap">HASTA</th>
+              <th className="px-3 py-2 whitespace-nowrap">COSTO</th>
+            </tr>
+          </thead>
 
-        <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-200">
+            {
+              costos?.map(({ name, desde, hasta, costo }) => (
+                <tr className="*:text-gray-100 *:first:font-medium" key={`costo-${name}`}>  
+                  <td className="px-3 py-2 text-center text-sm">{name}</td>
+                  <td className="px-3 py-2 text-center text-sm">{desde}</td>  
+                  <td className="px-3 py-2 text-center text-sm">{hasta}</td>  
+                  <td className="px-3 py-2 text-center text-sm">S/ {costo}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        
+        <div className="flex flex-col items-center gap-2 mt-5 ">
+          <p className="text-gray-200 font-bold text-lg">Medios de pago:</p>
+          <p className="flex gap-2 text-white">
+            <Image src="https://upload.wikimedia.org/wikipedia/commons/0/08/Icono_de_la_aplicaci%C3%B3n_Yape.png" width={20} height={20} alt="yapelogo"/>
+            990075670
+          </p>
+          <p className="text-gray-200">BCP: 21591957078031</p>
+          <p className="text-gray-200">CCI: 00221519195707803122</p>
+          <p className="text-white">JOHN M. JALLO H.</p>
+        </div>
+      </div>
 
-          {
-            costos?.map(({ name, desde, hasta, costo }) => (
-              <tr className="*:text-gray-100 *:first:font-medium" key={`costo-${name}`}>  
-                <td className="px-3 py-2 text-center text-sm">{name}</td>
-                <td className="px-3 py-2 text-center text-sm">{desde}</td>  
-                <td className="px-3 py-2 text-center text-sm">{hasta}</td>  
-                <td className="px-3 py-2 text-center text-sm">S/ {costo}</td>
-              </tr>
-            ))
+    {/*_______________CONSULTAS */}
+      <div className="flex flex-col items-center p-2 gap-4 mb-5 ">
+        <p className="text-gray-200 font-anton text-2xl">Consultas:</p>
+
+        <div className="flex gap-5">
+          { contacto.map(({name, numero}, index) => (
+            <Link href={`https://wa.me/51${numero}`} target="_blank" key={`contacto-${index}`} className="flex items-center gap-2 text-white mb-2 bg-black/20 px-4 py-2 rounded hover:scale-105 transition-all">  
+              <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#25d366"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+              <span>{name}</span>
+            </Link>
+          ))
           }
-        </tbody>
-      </table>
-
+        </div>
+      </div>
+    {/*_______________Formulario */}
+      <div className="p-2 mb-5 " id="form-register">
+        <RegisterForm />
       </div>
 
     {/*_______________FOOTER */}
