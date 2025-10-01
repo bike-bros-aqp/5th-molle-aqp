@@ -37,7 +37,9 @@ const noUciTable = [
 ]
 
 const costos = [
-
+  {name: 'Preventa 1', desde: '01-OCT', hasta: '08-OCT', costo: '85'},
+  {name: 'Preventa 2', desde: '09-OCT', hasta: '16-OCT', costo: '115'},
+  {name: 'Regular', desde: '17-OCT', hasta: '-', costo: '140'},
 ]
 
 export default function Inscripcion() {
@@ -127,12 +129,16 @@ export default function Inscripcion() {
 
         <tbody className="divide-y divide-gray-200">
 
-          <tr className="*:text-gray-100 *:first:font-medium" key={`row-${name}`}>
-            <td className="px-3 py-2 text-center text-sm">Preventa 1</td>
-            <td className="px-3 py-2 text-center text-sm">01-OCT</td>  
-            <td className="px-3 py-2 text-center text-sm">10-OCT</td>  
-            <td className="px-3 py-2 text-center text-sm">S/ 85</td>  
-          </tr>
+          {
+            costos?.map(({ name, desde, hasta, costo }) => (
+              <tr className="*:text-gray-100 *:first:font-medium" key={`costo-${name}`}>  
+                <td className="px-3 py-2 text-center text-sm">{name}</td>
+                <td className="px-3 py-2 text-center text-sm">{desde}</td>  
+                <td className="px-3 py-2 text-center text-sm">{hasta}</td>  
+                <td className="px-3 py-2 text-center text-sm">S/ {costo}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
