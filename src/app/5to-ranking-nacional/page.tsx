@@ -149,13 +149,13 @@ export default function Inscripcion() {
         </table>
         
         <div className="flex flex-col items-center gap-2 mt-5 ">
-          <p className="text-gray-200 font-bold text-lg">Medios de pago:</p>
-          <p className="flex gap-2 text-white">
+          <p className="text-gray-400 font-bold text-lg">Medios de pago:</p>
+          <p className="flex gap-2 text-gray-300">
             <Image src="https://upload.wikimedia.org/wikipedia/commons/0/08/Icono_de_la_aplicaci%C3%B3n_Yape.png" width={20} height={20} alt="yapelogo"/>
             990075670
           </p>
-          <p className="text-gray-200">BCP: 21591957078031</p>
-          <p className="text-gray-200">CCI: 00221519195707803122</p>
+          <p className="text-gray-300">BCP: 21591957078031</p>
+          <p className="text-gray-300">CCI: 00221519195707803122</p>
           <p className="text-white">JOHN M. JALLO H.</p>
         </div>
       </div>
@@ -175,7 +175,7 @@ export default function Inscripcion() {
         </div>
       </div>
     {/*_______________Formulario */}
-      <div className="p-2 mb-5 " id="form-register">
+      <div className="max-w-3xl p-2 mb-5 " id="form-register">
         <RegisterForm />
       </div>
 
