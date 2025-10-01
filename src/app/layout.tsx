@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${anton.variable} ${oswald.variable} antialiased w-dvw h-dvh overflow-x-hidden`}>
       <Background />
 
-      <div className="relative z-10">
+      <div className="z-10">
         {children}
       </div>
       </body>

@@ -15,16 +15,3 @@
   --font-oswald: var(--font-oswald), sans-serif;
 }
 
-.island {
-  position: fixed;
-  z-index: -10;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100dvh;
-  transform: scale(1);
-  /* Add your background pattern here */
-  background: rgb(52, 65, 73);
-  filter: url(#octave1) brightness(2.25) contrast(1.05) blur(0.25rem);
-}
-

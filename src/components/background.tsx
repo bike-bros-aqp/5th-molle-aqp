@@ -1,6 +1,6 @@
 function Background() {
   return (
-    <div className="fixed -z-10 top-0 left-0 w-dvw h-dvh flex items-center justify-center">
+    <div className="fixed -z-10 top-0 left-0 right-0 bottom-0 flex items-center justify-center">
       <img
         alt="Background"
         src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759271763/fondo_vcidqx.png"

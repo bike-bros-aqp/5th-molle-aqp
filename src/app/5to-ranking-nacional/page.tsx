@@ -51,7 +51,7 @@ const contacto = [
 
 export default function Inscripcion() {
   return (
-    <div className="w-full flex flex-col min-h-screen items-center">
+    <div className="w-full flex flex-col min-h-screen items-center justify-center">
 
     {/*_______________HEADER */}
       <header className="w-full py-3 px-5 bg-black/90 sticky top-0 z-10">
@@ -66,10 +66,10 @@ export default function Inscripcion() {
       </header>
 
     {/*_______________MAIN LOGO */}
-      <div className="w-full flex justify-center max-w-4xl px-5 py-5 my-10 md:my-16 md:p-0">
+      <div className="w-full aspect-square flex justify-center max-w-4xl p-5 my-10 md:my-16 md:p-0">
         <Image 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
-          width={700} height={600}
+          width={900} height={400}
           className="hover:scale-105 transition-transform duration-300"
         />
       </div>
