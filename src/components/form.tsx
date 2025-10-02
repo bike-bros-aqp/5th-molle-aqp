@@ -117,7 +117,7 @@ export default function Home() {
       setLoading(false)
 
       window.alert(data?.data?.msg)
-      // if(data?.data?.success) {reset()}
+      if(data?.data?.success) reset()
     }
     fecthData()
   });
