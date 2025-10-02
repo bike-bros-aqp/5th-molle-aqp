@@ -60,7 +60,7 @@ export default function Inscripcion() {
           <a
             className="inline-block rounded-sm border border-current px-6 py-2 text-sm font-medium text-primary transition hover:animate-pulse hover:shadow-xl focus:ring-3 focus:outline-hidden "
             href="#form-register" >
-            REGISTRATE
+            INSCRIBETE
           </a>
         </div>
       </header>
