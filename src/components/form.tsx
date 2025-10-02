@@ -19,7 +19,7 @@ type Inputs = {
   team?: string,
   guardianInfo?: string,
   paymentOperationNumber: number,
-  paymentReceipt: FileList,
+  paymentReceipt: FileList ,
   inAllergys: boolean,
   inBloodType: boolean,
   inEmerencyContact: boolean,
@@ -46,24 +46,22 @@ const initialBaseInfo: BaseInfo = {
 
 const nowYear = new Date().getFullYear();
 
+const defaultValues = {
+  'category' : '',
+  'bloodType': ''
+}
+
 
 export default function Home() {
   const {register,handleSubmit,
     formState:{errors},
-    watch
-  } = useForm<Inputs>()
+    watch, reset
+  } = useForm<Inputs>({defaultValues})
 
   const [baseInfo, setBaseInfo] = useState<BaseInfo>(initialBaseInfo);
   const [loading, setLoading] = useState(true);
 
-  console.log({
-    edad: nowYear - watch('birthYear'),
-    uci: watch('uci'),
-    sexo: watch('gender'),
-    // base: baseInfo.conditions
-  })
-
-
+  // --------------------- Registro de informacion
   useEffect(() => {
     const localBaseInfo = getLocal('baseInfo') as BaseInfo
     if(localBaseInfo){
@@ -75,8 +73,10 @@ export default function Home() {
       setLoading(true)
       const res = await fetch('/api/info')
       const data = await res.json()
-      const conditions = data?.data?.conditions || []
-      const list = data?.data?.list || []
+      if(!data?.success)  return window.alert('Por favor refrezca la pagina')
+
+      const conditions = data?.conditions || []
+      const list = data?.list || []
       setBaseInfo({conditions,list})
       setLocal('baseInfo',{conditions,list})
       setLoading(false)
@@ -84,8 +84,42 @@ export default function Home() {
     fetchData()
   },[])
   
-  const onSubmit =  handleSubmit((data) => {
 
+  // --------------------- Envio de formulario
+  const onSubmit =  handleSubmit((data) => {
+    const lista = baseInfo.list
+    const dni = (+watch('dni')).toString(32)
+
+    if(lista.includes(dni)){
+      window.alert('El DNI ya se encuentra registrado....')
+      return
+    }
+
+
+    const body:object = {...watch()};
+
+
+
+    const fecthData = async () => {
+      setLoading(true)
+      const file = watch('paymentReceipt')[0]
+      const array = await file.arrayBuffer()
+      const bytes = Array.from(new Uint8Array(array))
+      const name = file.name
+
+
+      const res =  await fetch('/api/info',{
+          method: 'POSt',
+          body: JSON.stringify({...body, paymentReceipt:{bytes,name}})
+        })
+      const data = await res.json()
+      console.log(data)
+      setLoading(false)
+
+      window.alert(data?.data?.msg)
+      // if(data?.data?.success) {reset()}
+    }
+    fecthData()
   });
 
   return ( 
@@ -157,9 +191,9 @@ export default function Home() {
                 }
               )}
             >
-              <option disabled value='' hidden>- Categoria -</option>
+              <option disabled hidden value=''>- Categoria -</option>
               {
-                (watch('gender') && watch('birthYear')) &&baseInfo.conditions.filter(({uci,desde,hasta,sexo}) => {
+                (watch('gender') && watch('birthYear')) && baseInfo.conditions.filter(({uci,desde,hasta,sexo}) => {
                   const valUci = watch('uci') == uci
                   const valSexo = watch('gender') == sexo
                   const edad = nowYear - watch('birthYear')
@@ -272,7 +306,12 @@ export default function Home() {
             <label htmlFor="inFile" className="text-zinc-500 cursor-pointer ">Constancia 📁</label>
             <input type="file" id="inFile" className="hidden"
               {...register('paymentReceipt',
-                { required: true }
+                {
+                  required: {value: true, message: 'Debes ingresar la constancia de pago'},
+                  validate: {
+                    espacio: files => files[0]?.size <= 1024**2 || 'El archivo debe ser menor a 1MB'
+                  }
+                }
               )}
             />
           </div>

@@ -2,8 +2,8 @@ import { NextResponse } from "next/server"
 
 
 
-export const goodResponse = (message:string,data:object) => {
-  return NextResponse.json({message,data},{status:200})
+export const goodResponse = (data:object) => {
+  return NextResponse.json(data,{status:200})
 }
 
 export const badResponse = (err:object) => {
@@ -16,7 +16,7 @@ export const errorResponse = (message:string,err?:object) => {
 
 
 type KeyUrl = 'type'
-type ValueUrl = 'info'
+type ValueUrl = 'info' | 'participantes'
 
 export const genUrl = (key:KeyUrl,value:ValueUrl) => {
   return `${process.env.URL}?${key}=${value}`

@@ -66,7 +66,7 @@ export default function Inscripcion() {
       </header>
 
     {/*_______________MAIN LOGO */}
-      <div className="w-full aspect-square flex justify-center max-w-4xl p-5 my-10 md:my-16 md:p-0">
+      <div className="w-full aspect-square flex justify-center max-w-4xl p-5 my-10 md:my-16 md:p-3">
         <Image 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
           width={900} height={400}
