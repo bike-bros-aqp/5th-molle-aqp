@@ -21,6 +21,7 @@ function Categorias(props:Props) {
             <th className="px-3 py-2 whitespace-nowrap">CATEGORIA</th>
             <th className="px-3 py-2 whitespace-nowrap">DESDE</th>
             <th className="px-3 py-2 whitespace-nowrap">HASTA</th>
+            <th className="px-3 py-2 whitespace-nowrap"> AÑO NACIMIENTO</th>
           </tr>
         </thead>
 
@@ -31,6 +32,7 @@ function Categorias(props:Props) {
                 <td className="px-3 py-2 text-center text-sm">{name}</td>
                 <td className="px-3 py-2 text-center text-sm">{desde ? year-desde + ' años' : ''}</td>  
                 <td className="px-3 py-2 text-center text-sm">{hasta ? year-hasta + ' años' : ''}</td>  
+                <td className="px-3 py-2 text-center text-sm">{desde || ''}-{hasta || ''}</td>  
               </tr>
             ))
           }
