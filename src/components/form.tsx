@@ -135,13 +135,13 @@ export default function Home() {
       >
       {/* ------------------------------------------------------------------------------------------------- UCI AÑO HOmbre/Mujer */}
         <div className="flex gap-3 justify-between w-full h-8"> 
-          <div className="flex gap-2 justify-center items-center h-full w-1/5 cursor-pointer">
+          <div className="flex gap-2 justify-center items-center h-full w-1/3 cursor-pointer">
             <input type="checkbox" id="inUCI" className=" h-full checked:accent-orange-600 cursor-pointer border-none" 
               {...register('uci')}
               />
             <label htmlFor="inUCI" className="text-zinc-500 font-bold text-xl cursor-pointer">Federado|UCI</label>
           </div>
-          <div className="w-1/2 flex gap-1 items-center h-full border border-zinc-700 bg-zinc-800 p-2 rounded justify-center ">
+          <div className="w-1/3 flex gap-1 items-center h-full border border-zinc-700 bg-zinc-800 p-2 rounded justify-center ">
             <input type="radio" value="M" id="inHombre" className="checked:accent-orange-600 cursor-pointer"
               {...register('gender',
                 { 
@@ -156,7 +156,7 @@ export default function Home() {
             <label className="mx-1 text-zinc-500 cursor-pointer" htmlFor="inMujer">Mujer</label>
           </div>
           <input type="number" placeholder="Año Nacimiento"
-            className="w-1/2 rounded bg-zinc-800 border border-zinc-700 text-white p-2 focus:ring-2 focus:ring-orange-600 outline-none h-full placeholder-zing-500 text-center"
+            className="w-1/3 rounded bg-zinc-800 border border-zinc-700 text-white p-2 focus:ring-2 focus:ring-orange-600 outline-none h-full placeholder-zing-500 text-center"
             {...register('birthYear',
               { 
                 required: {value: true, message: 'Debe ingresar su año de nacimiento'},
