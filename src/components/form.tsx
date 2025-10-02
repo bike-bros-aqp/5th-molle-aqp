@@ -139,7 +139,7 @@ export default function Home() {
             <input type="checkbox" id="inUCI" className=" h-full checked:accent-orange-600 cursor-pointer border-none" 
               {...register('uci')}
               />
-            <label htmlFor="inUCI" className="text-zinc-500 font-bold text-xl cursor-pointer">Federado</label>
+            <label htmlFor="inUCI" className="text-zinc-500 font-bold text-xl cursor-pointer">Federado|UCI</label>
           </div>
           <div className="w-1/2 flex gap-1 items-center h-full border border-zinc-700 bg-zinc-800 p-2 rounded justify-center ">
             <input type="radio" value="M" id="inHombre" className="checked:accent-orange-600 cursor-pointer"
