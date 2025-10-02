@@ -22,12 +22,16 @@ const uciTable = [
   {name: 'Junior', desde:2008, hasta: 2007 },
   {name: 'Elite', desde:2006 },
   {name: 'Master UCI', desde:1990, hasta: 1986 },
+  {name: 'Junior Damas', desde:2008, hasta: 2007 },
+  {name: 'Cadete UCI', desde:2010, hasta: 2009 },
 ] 
 
 const noUciTable = [
   {name: 'Escuela', desde:2017, hasta: 2015 },
-  {name: 'Infantil', desde:2014, hasta: 2012 },
-  {name: 'Cadetes', desde:2011, hasta: 2009 },
+  {name: 'Infantil', desde:2014, hasta: 2013 },
+  {name: 'Pre-Cadetes', desde:2012, hasta: 2011 },
+  {name: 'Cadetes\nPromocional', desde:2010, hasta: 2009 },
+  {name: 'Junior\nPromocional', desde:2008, hasta: 2007 },
   {name: 'Master A', desde:1995, hasta: 1986 },
   {name: 'Master B', desde:1985, hasta: 1976 },
   {name: 'Master C', desde:1975 },
