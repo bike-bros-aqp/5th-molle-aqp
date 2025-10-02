@@ -2,15 +2,15 @@ import { NextResponse } from "next/server"
 
 
 
-export const goodResponse = (message:string,data?:Object) => {
+export const goodResponse = (message:string,data:object) => {
   return NextResponse.json({message,data},{status:200})
 }
 
-export const badResponse = (err:Object) => {
+export const badResponse = (err:object) => {
   return NextResponse.json(err,{status:400})
 }
 
-export const errorResponse = (message:string,err?:Object) => {
+export const errorResponse = (message:string,err?:object) => {
   throw new Error(JSON.stringify({message,...err},null,2)) 
 }
 

@@ -65,7 +65,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    const localBaseInfo = getLocal('baseInfo')
+    const localBaseInfo = getLocal('baseInfo') as BaseInfo
     if(localBaseInfo){
       setBaseInfo(localBaseInfo)
       setLoading(false)
@@ -75,8 +75,8 @@ export default function Home() {
       setLoading(true)
       const res = await fetch('/api/info')
       const data = await res.json()
-      const conditions = data?.message?.conditions || []
-      const list = data?.message?.list || []
+      const conditions = data?.data?.conditions || []
+      const list = data?.data?.list || []
       setBaseInfo({conditions,list})
       setLocal('baseInfo',{conditions,list})
       setLoading(false)

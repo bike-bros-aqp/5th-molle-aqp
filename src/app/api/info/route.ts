@@ -9,7 +9,7 @@ export async function GET() {
   try{  
     const res = await fetch(url)
     const data = await res.json()
-    return goodResponse(data)
+    return goodResponse('Datos generados correctamente',data)
 
   }catch(err){
     return badResponse({err})

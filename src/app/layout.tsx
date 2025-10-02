@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Oswald } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 import Background from "@/components/background";
 
 const anton = Anton({
