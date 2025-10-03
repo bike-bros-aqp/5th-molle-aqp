@@ -31,8 +31,8 @@ const noUciTable = [
   {name: 'Escuela', desde:2017, hasta: 2015 },
   {name: 'Infantil', desde:2014, hasta: 2013 },
   {name: 'Pre-Cadetes', desde:2012, hasta: 2011 },
-  {name: 'Cadetes\nPromocional', desde:2010, hasta: 2009 },
-  {name: 'Junior\nPromocional', desde:2008, hasta: 2007 },
+  {name: 'Cadetes Promocional', desde:2010, hasta: 2009 },
+  {name: 'Junior Promocional', desde:2008, hasta: 2007 },
 ]
 
 const noUciTable2 = [
@@ -45,7 +45,9 @@ const noUciTable3 = [
   {name: 'E-Bike',  text: 'bicicleta eléctrica' },
   {name: 'Novatos', text: 'primera carrera' },
   {name: 'Rigidas', text: 'bicicleta sin suspension trasera' },
-  {name: 'Enduro', text: 'Semi Pro / Damas Open' },
+  {name: 'Enduro/Semi Pro', text: 'bicicleta de Enduro' },
+  {name: 'Elite promocional', text: 'bicicleta de DH' },
+  {name: 'Damas Open', text: '' },
 ]
 
 const costos = [
