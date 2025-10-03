@@ -2,6 +2,7 @@
 
 import RegisterForm from "@/components/form";
 import Categorias from "@/components/table";
+import Categorias2 from "@/components/table2";
 import Image from "next/image"
 import Link from "next/link";
 
@@ -20,9 +21,9 @@ const apoyo = [
 const uciTable = [
   {name: 'Elite Damas', desde:2006 },
   {name: 'Junior', desde:2008, hasta: 2007 },
-  {name: 'Elite', desde:2006 },
-  {name: 'Master UCI', desde:1990, hasta: 1986 },
   {name: 'Junior Damas', desde:2008, hasta: 2007 },
+  {name: 'Elite', desde:2006 },
+  {name: 'Master UCI', desde:1990 },
   {name: 'Cadete UCI', desde:2010, hasta: 2009 },
 ] 
 
@@ -32,14 +33,19 @@ const noUciTable = [
   {name: 'Pre-Cadetes', desde:2012, hasta: 2011 },
   {name: 'Cadetes\nPromocional', desde:2010, hasta: 2009 },
   {name: 'Junior\nPromocional', desde:2008, hasta: 2007 },
+]
+
+const noUciTable2 = [
   {name: 'Master A', desde:1995, hasta: 1986 },
   {name: 'Master B', desde:1985, hasta: 1976 },
   {name: 'Master C', desde:1975 },
-  {name: 'E-Bike',  },
-  {name: 'Novatos',  },
-  {name: 'Rigidas',  },
-  {name: 'Enduro',  },
-  {name: 'Elite \n Promocional',  },
+]
+
+const noUciTable3 = [
+  {name: 'E-Bike',  text: 'bicicleta eléctrica' },
+  {name: 'Novatos', text: 'primera carrera' },
+  {name: 'Rigidas', text: 'bicicleta sin suspension trasera' },
+  {name: 'Enduro', text: 'Semi Pro / Damas Open' },
 ]
 
 const costos = [
@@ -71,10 +77,9 @@ export default function Inscripcion() {
 
     {/*_______________MAIN LOGO */}
       <div className="w-full aspect-square flex justify-center max-w-4xl p-5 my-10 md:my-16 md:p-3">
-        <Image 
+        <img 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
-          width={900} height={400}
-          className="hover:scale-105 transition-transform duration-300"
+          className="hover:scale-105 transition-transform duration-300 w-full"
         />
       </div>
 
@@ -114,15 +119,31 @@ export default function Inscripcion() {
       </div>
 
     {/*_______________TABLA UCI*/}
-      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mt-10 mb-5">
-        <p className="text-gray-200 font-anton text-2xl">Categorias UCI:</p>
+      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mt-8 mb-5">
+        <div className="flex flex-col items-center">
+          <p className="text-gray-200 font-anton text-2xl">Categorias</p>
+          <p className="text-gray-200 font-anton text-2xl">UCI</p>
+        </div>
         <Categorias content={uciTable}/>
       </div>
 
     {/*_______________TABLA NO UCI*/}
-      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl">
-        <p className="text-gray-200 font-anton text-2xl">Categorias Sin Carnet:</p>
+      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mb-5">
+        <div className="flex flex-col items-center">
+          <p className="text-gray-200 font-anton text-2xl">Categorias Promocionales</p>
+          <p className="text-gray-200 font-anton text-2xl">Sin Carnet</p>
+        </div>
         <Categorias content={noUciTable}/>
+      </div>
+
+    {/*_______________TABLA NO UCI 2*/}
+      <div className="flex flex-col items-center p-2 gap-4 w-full max-w-7xl mb-1">
+        <div className="flex flex-col items-center">
+          <p className="text-gray-200 font-anton text-2xl">Categorias Promocionales Especiales</p>
+          <p className="text-gray-200 font-anton text-2xl">Sin Carnet</p>
+        </div>
+        <Categorias content={noUciTable2}/>
+        <Categorias2  content={noUciTable3}/>
       </div>
 
     {/*_______________COSTO */}
@@ -180,8 +201,8 @@ export default function Inscripcion() {
       </div>
 
     {/*_______________FOOTER */}
-      <div className="w-full p-2 text-center text-white text-[10px] underline">
-        <a href="#">Terminos y condiciones</a>
+      <div className="w-full p-2 text-center text-white text-[18px] underline">
+        <a href="#">Reglamento</a>
       </div>
     {/*_______________Formulario */}
       <div className="max-w-3xl p-2 mb-5 " id="form-register">
