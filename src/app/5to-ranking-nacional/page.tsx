@@ -78,7 +78,7 @@ export default function Inscripcion() {
       </header>
 
     {/*_______________MAIN LOGO */}
-      <div className="w-full aspect-square flex justify-center max-w-4xl p-5 my-10 md:my-16 md:p-3">
+      <div className="w-full aspect-square flex justify-center max-w-2xl p-5 m-10 md:p-3">
         <img 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
           className="hover:scale-105 transition-transform duration-300 w-full"
@@ -104,7 +104,7 @@ export default function Inscripcion() {
       </div>
 
     {/*_______________APOYO */}
-      <div className="flex flex-col items-center p-5 gap-4 w-full max-w-4xl">
+      <div className="flex flex-col items-center p-5 gap-4 h-full max-w-4xl">
         <p className="text-white font-anton text-sm">Con el apoyo de:</p>
 
         <div className="flex w-full justify-between">
@@ -218,7 +218,6 @@ export default function Inscripcion() {
         </p>
       </footer>
 
-      {/* <RegisterForm /> */}
     </div>
 
   );

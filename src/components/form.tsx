@@ -125,7 +125,7 @@ export default function Home() {
   return ( 
     <div className="w-full font-oswald mt-5 ">
       <h1 className="text-3xl  text-white text-center mb-6 font-bold">
-        PART<span className="text-orange-600">ICIPA</span>
+        REGIS<span className="text-orange-600">TRATE</span>
       </h1>
     
       {loading && <LoadingInfo/>}
