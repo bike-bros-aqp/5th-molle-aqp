@@ -78,7 +78,7 @@ export default function Inscripcion() {
       </header>
 
     {/*_______________MAIN LOGO */}
-      <div className="w-full aspect-square flex justify-center max-w-[40rem] p-5 mb-5 md:p-3">
+      <div className="w-full aspect-square flex justify-center max-w-[38rem] p-5 mb-5 md:p-3">
         <img 
           src="https://res.cloudinary.com/dky2ixuo5/image/upload/v1759272271/banner-min_ugiz1q.png" alt="flyer" 
           className="hover:scale-105 transition-transform duration-300 w-full"
