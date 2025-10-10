@@ -51,9 +51,9 @@ const noUciTable3 = [
 ]
 
 const costos = [
-  {name: 'Preventa 1', desde: '01-OCT', hasta: '08-OCT', costo: '85'},
-  {name: 'Preventa 2', desde: '09-OCT', hasta: '16-OCT', costo: '115'},
-  {name: 'Regular', desde: '17-OCT', hasta: '31-OCT', costo: '140'},
+  {name: 'Preventa 1', desde: '09-OCT', hasta: '16-OCT', costo: '85'},
+  {name: 'Preventa 2', desde: '17-OCT', hasta: '24-OCT', costo: '115'},
+  {name: 'Regular', desde: '25-OCT', hasta: '31-OCT', costo: '140'},
 ]
 
 const contacto = [
@@ -203,8 +203,8 @@ export default function Inscripcion() {
       </div>
 
     {/*_______________FOOTER */}
-      <div className="w-full p-2 text-center text-white text-[18px] underline">
-        <a href="#">Reglamento</a>
+      <div className="w-full p-2 text-center text-white text-[18px] underline font-oswald">
+        <a href="https://drive.google.com/drive/folders/1P_VQUOENg33HHWyawZxkqOjz27yxFIsQ?usp=sharing" target="_blank">REGLAMENTO</a>
       </div>
     {/*_______________Formulario */}
       <div className="max-w-3xl p-2 mb-5 " id="form-register">
@@ -219,6 +219,5 @@ export default function Inscripcion() {
       </footer>
 
     </div>
-
   );
 }

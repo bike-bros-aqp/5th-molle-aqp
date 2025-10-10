@@ -20,6 +20,7 @@ type Inputs = {
   guardianInfo?: string,
   paymentOperationNumber: number,
   paymentReceipt: FileList ,
+  carnet: FileList ,
   inAllergys: boolean,
   inBloodType: boolean,
   inEmerencyContact: boolean,
@@ -96,27 +97,40 @@ export default function Home() {
     }
 
 
-    const body:object = {...watch()};
+    const body = {...watch()};
 
 
 
     const fecthData = async () => {
       setLoading(true)
-      const file = watch('paymentReceipt')[0]
-      const array = await file.arrayBuffer()
-      const bytes = Array.from(new Uint8Array(array))
-      const name = file.name
+      const file1 = watch('paymentReceipt')[0]
+      const array1 = await file1.arrayBuffer()
+      const bytes1 = Array.from(new Uint8Array(array1))
+      const name1 = file1.name
+
+      let carnet = {}
+      if(watch('uci')){
+        const file2 = watch('carnet')[0]
+        const array2 = await file2.arrayBuffer()
+        const bytes2 = Array.from(new Uint8Array(array2))
+        const name2 = file2.name
+        
+        carnet = {bytes:bytes2,name:name2}
+      }
+
+
+
 
 
       const res =  await fetch('/api/info',{
-          method: 'POSt',
-          body: JSON.stringify({...body, paymentReceipt:{bytes,name}})
+          method: 'POST',
+          body: JSON.stringify({...body, paymentReceipt:{bytes:bytes1,name:name1}, carnet})
         })
       const data = await res.json()
       console.log(data)
       setLoading(false)
 
-      window.alert(data?.data?.msg)
+      window.alert(data?.data?.msg || 'Ups')
       if(data?.data?.success) reset()
     }
     fecthData()
@@ -139,7 +153,7 @@ export default function Home() {
             <input type="checkbox" id="inUCI" className=" h-full checked:accent-orange-600 cursor-pointer border-none" 
               {...register('uci')}
               />
-            <label htmlFor="inUCI" className="text-zinc-500 font-bold text-xl cursor-pointer">Federado|UCI</label>
+            <label htmlFor="inUCI" className="text-zinc-500 font-bold text-md md:text-xl cursor-pointer">Federado | UCI</label>
           </div>
           <div className="w-1/3 flex gap-1 items-center h-full border border-zinc-700 bg-zinc-800 p-2 rounded justify-center ">
             <input type="radio" value="M" id="inHombre" className="checked:accent-orange-600 cursor-pointer"
@@ -292,7 +306,7 @@ export default function Home() {
 
       {/* ------------------------------------------------------------------------------------------------- Constancia de pago */}
         <div className="flex gap-3 justify-between w-full h-8 items-center">  
-          <label className="mx-1 text-zinc-500 w-1/5 text-center" htmlFor="inNumOp">Pago: </label>
+          <label className="mx-1 text-zinc-500 w-1/5" htmlFor="inNumOp">Pago: </label>
 
           <input type="number" placeholder="Numero Operacion" id="inNumOp"
             className="w-2/5 rounded bg-zinc-800 border border-zinc-700 text-white p-2 focus:ring-2 focus:ring-orange-600 outline-none h-full placeholder-zing-500"
@@ -303,7 +317,7 @@ export default function Home() {
             )}
           />
           <div className="w-2/5 rounded bg-zinc-200 border border-none text-white p-2 focus:ring-2 focus:ring-orange-600 outline-none h-full placeholder-zing-500 cursor-pointer flex justify-center items-center hover:font-bold">
-            <label htmlFor="inFile" className="text-zinc-500 cursor-pointer ">Constancia 📁</label>
+            <label htmlFor="inFile" className="text-zinc-500 cursor-pointer">Costancia Pago 📁</label>
             <input type="file" id="inFile" className="hidden"
               {...register('paymentReceipt',
                 {
@@ -315,7 +329,30 @@ export default function Home() {
               )}
             />
           </div>
+
         </div>
+      {/* ------------------------------------------------------------------------------------------------- Carnet de Federado */}
+        {
+          watch('uci') &&  <div className="flex gap-3 justify-between w-full h-8 items-center">  
+          <label className="mx-1 text-zinc-500 w-1/5" htmlFor="inNumOp">Carnet: </label>
+
+
+          <div className="w-4/5 rounded bg-zinc-200 border border-none text-white p-2 focus:ring-2 focus:ring-orange-600 outline-none h-full placeholder-zing-500 cursor-pointer flex justify-center items-center hover:font-bold">
+            <label htmlFor="inCarnet" className="text-zinc-500 cursor-pointer">Carnet 📷</label>
+            <input type="file" id="inCarnet" className="hidden"
+              {...register('carnet',
+                {
+                  required: {value: watch('uci'), message: 'Debes ingresar la foto de tu carnet'},
+                  validate: {
+                    espacio: files => files[0]?.size <= 1024**2 || 'El archivo debe ser menor a 1MB'
+                  }
+                }
+              )}
+            />
+          </div>
+
+        </div>
+        }
 
       <hr className="border-zinc-600 w-11/12 mx-auto"/>
 
