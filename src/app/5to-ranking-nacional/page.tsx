@@ -51,7 +51,6 @@ const noUciTable3 = [
 ]
 
 const costos = [
-  {name: 'Preventa 1', desde: '09-OCT', hasta: '16-OCT', costo: '85'},
   {name: 'Preventa 2', desde: '17-OCT', hasta: '24-OCT', costo: '115'},
   {name: 'Regular', desde: '25-OCT', hasta: '31-OCT', costo: '140'},
 ]

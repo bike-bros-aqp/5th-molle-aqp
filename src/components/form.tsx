@@ -62,6 +62,8 @@ export default function Home() {
   const [baseInfo, setBaseInfo] = useState<BaseInfo>(initialBaseInfo);
   const [loading, setLoading] = useState(true);
 
+  console.log(baseInfo)
+
   // --------------------- Registro de informacion
   useEffect(() => {
     const localBaseInfo = getLocal('baseInfo') as BaseInfo
