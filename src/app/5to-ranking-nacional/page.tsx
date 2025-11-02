@@ -207,7 +207,7 @@ export default function Inscripcion() {
       </div>
     {/*_______________Formulario */}
       <div className="max-w-3xl p-2 mb-5 " id="form-register">
-        {/* <RegisterForm /> */}
+        <RegisterForm />
       </div>
 
     {/*_______________FOOTER */}
