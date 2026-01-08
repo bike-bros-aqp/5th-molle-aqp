@@ -32,12 +32,10 @@ export default function RootLayout({
 
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${anton.variable} ${oswald.variable} antialiased w-dvw h-dvh overflow-x-hidden`}>
-      <Background />
+      <body className={`${anton.variable} ${oswald.variable} antialiased w-dvw h-dvh `}>
+      {/* <Background /> */}
 
-      <div className="z-10">
-        {children}
-      </div>
+      {children}
       </body>
     </html>
   );

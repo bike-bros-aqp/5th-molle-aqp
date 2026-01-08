@@ -5,6 +5,7 @@ import Categorias from "@/components/table";
 import Categorias2 from "@/components/table2";
 import Image from "next/image"
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const organizadores = [
   {src: "https://res.cloudinary.com/dky2ixuo5/image/upload/v1759271762/logo_bike_bros_thtrsf.png", alt: "logo Bike Bros"},
@@ -61,6 +62,10 @@ const contacto = [
 ]
 
 export default function Inscripcion() {
+  redirect('/')
+  
+
+
   return (
     <div className="w-full flex flex-col min-h-screen items-center justify-center">
 

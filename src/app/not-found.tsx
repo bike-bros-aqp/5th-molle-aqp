@@ -1,8 +1,11 @@
 'use client'
 
 import Link from "next/link"
+import { redirect } from "next/navigation"
 
 export default function Error() {
+  redirect('/')
+  
 
   return(
     <main className="grid min-h-dvh place-items-center px-6 py-24 sm:py-32 lg:px-8">
